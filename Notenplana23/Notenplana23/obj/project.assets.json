@@ -1792,19 +1792,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\maria\\.nuget\\packages\\": {}
+    "C:\\Users\\TOEL.HERTZ\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\OneDrive\\Desktop\\HHBK\\AIF32\\Soft\\GithubNotenplana23\\Notenplana23\\Notenplana23\\Notenplana23.csproj",
+      "projectUniqueName": "H:\\SOFT\\NotenplanaAIF32_23_24\\Notenplana23\\Notenplana23\\Notenplana23.csproj",
       "projectName": "Notenplana23",
-      "projectPath": "C:\\Users\\maria\\OneDrive\\Desktop\\HHBK\\AIF32\\Soft\\GithubNotenplana23\\Notenplana23\\Notenplana23\\Notenplana23.csproj",
-      "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\OneDrive\\Desktop\\HHBK\\AIF32\\Soft\\GithubNotenplana23\\Notenplana23\\Notenplana23\\obj\\",
+      "projectPath": "H:\\SOFT\\NotenplanaAIF32_23_24\\Notenplana23\\Notenplana23\\Notenplana23.csproj",
+      "packagesPath": "C:\\Users\\TOEL.HERTZ\\.nuget\\packages\\",
+      "outputPath": "H:\\SOFT\\NotenplanaAIF32_23_24\\Notenplana23\\Notenplana23\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TOEL.HERTZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
