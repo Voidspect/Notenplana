@@ -12,6 +12,15 @@ namespace Notenplana23
         private ViewProfil viewProfil;
 
         protected ModelProfil ModelProfil {get => ModelProfil; }
-        protected ViewProfil ViewProfil {get => ViewProfil; } 
+        protected ViewProfil ViewProfil {get => ViewProfil; }
+
+        internal bool check(string Benutzername, string Passwort)
+        {
+            //Nur zum Testen...
+            if(Benutzername=="Horst"&&Passwort=="12345")
+                return true;
+            else
+                return false;
+        }
     }
 }

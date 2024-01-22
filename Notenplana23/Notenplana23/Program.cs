@@ -1,7 +1,9 @@
 namespace Notenplana23
 {
     internal static class Program
-    {   
+    {
+        //Die statischen Member müssen instanziiert werden!!!
+        // -> Nach "ApplicationConfiguration.Initialize();"
         private static ViewLoggin viewLoggin;
         private static ViewRegestrierung viewRegestrierung;
         private static ViewHauptprogramm viewHauptprogramm;
@@ -50,10 +52,64 @@ namespace Notenplana23
         [STAThread]
         static void Main()
         {
+            
+            
+            //Warum stehen die folgenden zwei Kommentarzeilen hier?
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ViewLoggin());
+
+            //Am einfachsten ist es bei den vielen Models, Views und Controllern
+            // alles in Methoden auszugliedern.
+            // Ich habe mal den Anfang gemacht. Den Rest könnt ihr im Team vervollständigen ;-)
+            modelsInstanziieren();
+            viewsInstanziieren();
+            controllerInstanziieren();
+
+            modelsZuweisen();
+            viewsZuweisen();
+            controllerZuweisen();
+
+            //View Login sollte es schon geben!
+            //Application.Run(new ViewLoggin());
+            Application.Run(viewLoggin);
+        }
+        private static void modelsInstanziieren() 
+        {
+        }
+        private static void viewsInstanziieren()
+        {
+            viewLoggin = new ViewLoggin();
+            viewRegestrierung = new ViewRegestrierung();
+            viewHauptprogramm = new ViewHauptprogramm();
+            viewProfil=new ViewProfil();
+            viewProfiBearbeiten=new ViewProfiBearbeiten();
+            viewFachHj1=new ViewFachHj1();
+            viewFachBearbeitenHj1=new ViewFachBearbeitenHj1();
+            viewNoteHj1=new ViewNoteHj1();
+            viewNoteBearbeitenHj1=new ViewNoteBearbeitenHj1();
+            viewFachHj2=new ViewFachHj2();
+            viewFachBearbeitenHj2=new ViewFachBearbeitenHj2();
+            viewNoteHj2=new ViewNoteHj2();
+            viewNoteBearbeitenHj2=new ViewNoteBearbeitenHj2();
+        }
+
+        private static void controllerInstanziieren() 
+        {
+            controllerProfil = new ControllerProfil();
+        }
+
+        private static void modelsZuweisen() 
+        {
+        }
+        private static void viewsZuweisen() 
+        {
+            viewLoggin.ViewRegestrierung = viewRegestrierung;
+            viewLoggin.ViewHauptprogramm = viewHauptprogramm;
+        }
+        private static void controllerZuweisen() 
+        {
+            viewLoggin.ControllerProfil = controllerProfil;
         }
     }
 }
