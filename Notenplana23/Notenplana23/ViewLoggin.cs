@@ -17,11 +17,11 @@ namespace Notenplana23
         private ModelLoggin modelLoggin;
         private ViewRegestrierung viewRegestrierung;
         private ViewHauptprogramm viewHauptprogramm;
-        private ControllerProfil controllerProfil;
+        private ControllerProfile controllerProfil;
 
         public ViewRegestrierung ViewRegestrierung { get => viewRegestrierung; set => viewRegestrierung = value; }
         public ViewHauptprogramm ViewHauptprogramm { get => viewHauptprogramm; set => viewHauptprogramm = value; }
-        internal ControllerProfil ControllerProfil { get => controllerProfil; set => controllerProfil = value; }
+        internal ControllerProfile ControllerProfil { get => controllerProfil; set => controllerProfil = value; }
 
         public ViewLoggin()
         {

@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Notenplana23
 {
-    internal class ModelProfil
+    internal class ModelProfileSQL:IModelProfile
     {
         private MySqlConnection conn;
-        public void ausgeben(Profil profil)
+
+        
+
+        void IModelProfile.ausgeben(Profil profil)
         {
             string myConnectionString = "server=127.0.0.1;pwd = root; database = Notenplana; ";//uid=erp;
             conn = new MySqlConnection(myConnectionString);
@@ -30,6 +33,11 @@ namespace Notenplana23
             {
                 conn.Close();
             }
+        }
+
+        bool IModelProfile.check(string Benutzername, string Passwort)
+        {
+            throw new NotImplementedException();
         }
     }
 }
