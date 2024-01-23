@@ -15,6 +15,14 @@ namespace Notenplana23
     public partial class ViewLoggin : Form
     {
         private ModelLoggin modelLoggin;
+        private ViewRegestrierung viewRegestrierung;
+        private ViewHauptprogramm viewHauptprogramm;
+        private ControllerProfil controllerProfil;
+
+        public ViewRegestrierung ViewRegestrierung { get => viewRegestrierung; set => viewRegestrierung = value; }
+        public ViewHauptprogramm ViewHauptprogramm { get => viewHauptprogramm; set => viewHauptprogramm = value; }
+        internal ControllerProfil ControllerProfil { get => controllerProfil; set => controllerProfil = value; }
+
         public ViewLoggin()
         {
             InitializeComponent();
@@ -23,19 +31,42 @@ namespace Notenplana23
 
         private void buttonRegestrieren_Click(object sender, EventArgs e)
         {
-            ViewRegestrierung viewRegestrierung = new ViewRegestrierung();
-            viewRegestrierung.Show();
+            //Die ViewRegistrierung ist schon in der Klasse programm
+            //instanziiert!
+            //Hier könnten immer neue Views den Speicher füllen.
+            //ViewRegestrierung viewRegestrierung = new ViewRegestrierung();
+            ViewRegestrierung.Show();
 
             this.Hide();
         }
 
         private void buttonLoggin_Click(object sender, EventArgs e)
         {
-            ViewHauptprogramm viewHauptprogramm = new ViewHauptprogramm();
-            viewHauptprogramm.Show();
+            //Die ViewHauptprogramm ist schon in der Klasse programm
+            //instanziiert!
+            //Hier könnten immer neue Views den Speicher füllen.
+            //ViewHauptprogramm viewHauptprogramm = new ViewHauptprogramm();
 
-            this.Hide();
-            MessageBox.Show("Sie sind nun eingeloggt.");
+            //Hier soll mit dem Controller aus dem Model geprüft werden, ob es einen entsprechenden 
+            // Benutzer gibt...
+            //Mein Vorschlag wäre es eine entsprechende Methode im 
+            // Controller zu implementieren
+            if (ControllerProfil.check(textBoxBenutzername.Text, textBoxPasswort.Text))
+            {
+                ViewHauptprogramm.Show();
+                this.Hide();
+            }
+            else
+            {
+                textBoxBenutzername.Text = string.Empty;
+                textBoxPasswort.Text = string.Empty;
+                MessageBox.Show("No such User!");
+            }
+
+
+
+            //Die MessageBox ist imho überflüssig. Es sollte entweder ein Login erfolgen oder nicht.
+            //MessageBox.Show("Sie sind nun eingeloggt.");
         }
     }
 }
