@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <profile>
-  <profil name="Horst Fleißig">
+  <profil name="Horst Fleißig" passwort="12345">
     <fach name="Deutsch">
       <note halbjahr="1" art="solei">1</note>
     </fach>
