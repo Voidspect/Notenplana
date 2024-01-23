@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Notenplana23
 {
     internal static class Program
@@ -21,7 +23,7 @@ namespace Notenplana23
         private static ConrtollerLoggin controllerLoggin;
         private static ControllerRegestrierung controllerRegestrierung;
         private static ControllerHauptprogramm controllerHauptprogramm;
-        private static ControllerProfil controllerProfil;
+        private static ControllerProfile controllerProfile;
         private static ConrollerProfilBearbeiten controllerProfiBearbeiten;
         private static ControllerFachHj1 controllerFachHj1;
         private static ControllerFachBearbeitenHj1 controllerFachBearbeitenHj1;
@@ -35,7 +37,7 @@ namespace Notenplana23
         private static ModelLoggin modelLoggin;
         private static ModelRegestrierung modelRegestrierung;
         private static ModelHauptprogramm modelHauptprogramm;
-        private static ModelProfil modelProfil;
+        private static IModelProfile modelProfile;
         private static ModelProfilBearbeiten modelProfiBearbeiten;
         private static ModelFachHj1 modelFachHj1;
         private static ModelFachBearbeitenHj1 modelFachBearbeitenHj1;
@@ -76,7 +78,8 @@ namespace Notenplana23
         }
         private static void modelsInstanziieren() 
         {
-        }
+            modelProfile=new ModelProfileXML();
+    }
         private static void viewsInstanziieren()
         {
             viewLoggin = new ViewLoggin();
@@ -96,11 +99,12 @@ namespace Notenplana23
 
         private static void controllerInstanziieren() 
         {
-            controllerProfil = new ControllerProfil();
+            controllerProfile = new ControllerProfile();
         }
 
         private static void modelsZuweisen() 
         {
+            controllerProfile.ModelProfile = modelProfile;
         }
         private static void viewsZuweisen() 
         {
@@ -109,7 +113,7 @@ namespace Notenplana23
         }
         private static void controllerZuweisen() 
         {
-            viewLoggin.ControllerProfil = controllerProfil;
+            viewLoggin.ControllerProfil = controllerProfile;
         }
     }
 }

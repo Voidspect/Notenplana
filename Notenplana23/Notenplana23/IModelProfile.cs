@@ -8,5 +8,7 @@ namespace Notenplana23
 {
     internal interface IModelProfile
     {
+        void ausgeben(Profil profil);
+        bool check(string Benutzername, string Passwort);
     }
 }

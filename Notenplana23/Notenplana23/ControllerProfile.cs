@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Notenplana23
 {
-    internal class ControllerProfil
+    internal class ControllerProfile
     {
-        private ModelProfil modelProfil;
+        private IModelProfile modelProfile;
         private ViewProfil viewProfil;
 
-        protected ModelProfil ModelProfil {get => ModelProfil; }
-        protected ViewProfil ViewProfil {get => ViewProfil; }
+        
+        protected ViewProfil ViewProfil {get => viewProfil; }
+        public IModelProfile ModelProfile { get => modelProfile; set => modelProfile = value; }
 
         internal bool check(string Benutzername, string Passwort)
         {
-            //Nur zum Testen...
-            if(Benutzername=="Horst"&&Passwort=="12345")
+            if(modelProfile.check(Benutzername,Passwort))
                 return true;
             else
                 return false;
