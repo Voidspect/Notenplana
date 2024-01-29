@@ -6,7 +6,15 @@ namespace Notenplana23
     {
         //Die statischen Member müssen instanziiert werden!!!
         // -> Nach "ApplicationConfiguration.Initialize();"
-        private static ViewLoggin viewLoggin;
+
+        
+        //Beispiel MVC Deklaration
+        private static IViewLoggin viewLoggin;
+        private static IControllerProfile controllerProfile;
+        private static IModelProfile modelProfile;
+        
+        //Bitte alles folgende der Deklaration entsprechend anpassen
+        // und alle Schnittstellen erstellen...
         private static ViewRegestrierung viewRegestrierung;
         private static ViewHauptprogramm viewHauptprogramm;
         private static ViewProfil viewProfil;
@@ -23,7 +31,6 @@ namespace Notenplana23
         private static ConrtollerLoggin controllerLoggin;
         private static ControllerRegestrierung controllerRegestrierung;
         private static ControllerHauptprogramm controllerHauptprogramm;
-        private static ControllerProfile controllerProfile;
         private static ConrollerProfilBearbeiten controllerProfiBearbeiten;
         private static ControllerFachHj1 controllerFachHj1;
         private static ControllerFachBearbeitenHj1 controllerFachBearbeitenHj1;
@@ -37,7 +44,6 @@ namespace Notenplana23
         private static ModelLoggin modelLoggin;
         private static ModelRegestrierung modelRegestrierung;
         private static ModelHauptprogramm modelHauptprogramm;
-        private static IModelProfile modelProfile;
         private static ModelProfilBearbeiten modelProfiBearbeiten;
         private static ModelFachHj1 modelFachHj1;
         private static ModelFachBearbeitenHj1 modelFachBearbeitenHj1;
@@ -74,12 +80,13 @@ namespace Notenplana23
 
             //View Login sollte es schon geben!
             //Application.Run(new ViewLoggin());
-            Application.Run(viewLoggin);
+            Application.Run((Form)viewLoggin);
         }
         private static void modelsInstanziieren() 
         {
             modelProfile=new ModelProfileXML();
-    }
+            //ggf. übrige Models ergänzen
+        }
         private static void viewsInstanziieren()
         {
             viewLoggin = new ViewLoggin();
@@ -95,25 +102,30 @@ namespace Notenplana23
             viewFachBearbeitenHj2=new ViewFachBearbeitenHj2();
             viewNoteHj2=new ViewNoteHj2();
             viewNoteBearbeitenHj2=new ViewNoteBearbeitenHj2();
+            //ggf. ergänzen
         }
 
         private static void controllerInstanziieren() 
         {
             controllerProfile = new ControllerProfile();
+            //ggf. ergänzen
         }
 
         private static void modelsZuweisen() 
         {
             controllerProfile.ModelProfile = modelProfile;
+            //ggf. ergänzen
         }
         private static void viewsZuweisen() 
         {
             viewLoggin.ViewRegestrierung = viewRegestrierung;
             viewLoggin.ViewHauptprogramm = viewHauptprogramm;
+            //ggf. ergänzen
         }
         private static void controllerZuweisen() 
         {
-            viewLoggin.ControllerProfil = controllerProfile;
+            viewLoggin.ControllerProfile = controllerProfile;
+            //ggf. ergänzen
         }
     }
 }

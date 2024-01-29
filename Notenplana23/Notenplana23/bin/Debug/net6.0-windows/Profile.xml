@@ -5,4 +5,6 @@
       <note halbjahr="1" art="solei">1</note>
     </fach>
   </profil>
+  <profil name="Kurt" passwort="123" />
+  <profil name="Else" passwort="456" />
 </profile>

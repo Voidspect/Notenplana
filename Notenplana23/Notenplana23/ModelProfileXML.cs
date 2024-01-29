@@ -43,19 +43,29 @@ namespace Notenplana23
         bool IModelProfile.check(string Benutzername, string Passwort)
         {
             //Im XML-File nach Name und PWD suchen.
-            //IEnumerable<XElement> result =
-            //    doc.Descendants("profil")
-            //    .Where(element
-            //    => element.Attribute("name").Value == Benutzername
-            //    && element.Attribute("passwort").Value == Passwort);
+            IEnumerable<XElement> result =
+                doc.Descendants("profil")
+                .Where(element
+                => element.Attribute("name").Value == Benutzername
+                && element.Attribute("passwort").Value == Passwort);
 
-            //if (result.Count()>0)
-            //{
-            //    return true;
-            //}
-            //else
+            if (result.Count() > 0)
+            {
+                return true;
+            }
+            else
                 return false;
         }
 
+        void IModelProfile.speichern(string Benutzername, string Passwort)
+        {
+            doc.Descendants("profil")
+                .Last()
+                .AddAfterSelf(
+                    new XElement("profil",
+                     new XAttribute("name", Benutzername),
+                     new XAttribute("passwort", Passwort)));
+            doc.Save("Profile.xml");
+        }
     }
 }
