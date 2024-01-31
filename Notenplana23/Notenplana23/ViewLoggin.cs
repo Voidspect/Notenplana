@@ -12,16 +12,16 @@ using MySql.Data.MySqlClient;
 
 namespace Notenplana23
 {
-    public partial class ViewLoggin : Form
+    public partial class ViewLoggin : Form, IViewLoggin
     {
         private ModelLoggin modelLoggin;
         private ViewRegestrierung viewRegestrierung;
         private ViewHauptprogramm viewHauptprogramm;
-        private ControllerProfile controllerProfil;
+        private IControllerProfile controllerProfil;
 
-        public ViewRegestrierung ViewRegestrierung { get => viewRegestrierung; set => viewRegestrierung = value; }
-        public ViewHauptprogramm ViewHauptprogramm { get => viewHauptprogramm; set => viewHauptprogramm = value; }
-        internal ControllerProfile ControllerProfil { get => controllerProfil; set => controllerProfil = value; }
+        ViewRegestrierung IViewLoggin.ViewRegestrierung { get => viewRegestrierung; set => viewRegestrierung=value; }
+        ViewHauptprogramm IViewLoggin.ViewHauptprogramm { get => viewHauptprogramm; set => viewHauptprogramm=value; }
+        IControllerProfile IViewLoggin.ControllerProfile { get => controllerProfil; set => controllerProfil=value; }
 
         public ViewLoggin()
         {
@@ -35,9 +35,19 @@ namespace Notenplana23
             //instanziiert!
             //Hier könnten immer neue Views den Speicher füllen.
             //ViewRegestrierung viewRegestrierung = new ViewRegestrierung();
-            ViewRegestrierung.Show();
 
-            this.Hide();
+            //ViewRegestrierung.Show();
+
+            //Der Benutzer kann direkt mit den Angaben im Loginfenster gespeichert werden.
+            //ModelProfileXML benötigt noch ein speichern!
+            //->IModel
+            //ControllerLogin muss entsprechend angepasst werden
+
+            controllerProfil.registrieren(textBoxBenutzername.Text, textBoxPasswort.Text);
+
+            textBoxBenutzername.Text= string.Empty;
+            textBoxPasswort.Text= string.Empty;
+
         }
 
         private void buttonLoggin_Click(object sender, EventArgs e)
@@ -51,9 +61,9 @@ namespace Notenplana23
             // Benutzer gibt...
             //Mein Vorschlag wäre es eine entsprechende Methode im 
             // Controller zu implementieren
-            if (ControllerProfil.check(textBoxBenutzername.Text, textBoxPasswort.Text))
+            if (controllerProfil.check(textBoxBenutzername.Text, textBoxPasswort.Text))
             {
-                ViewHauptprogramm.Show();
+                viewHauptprogramm.Show();
                 this.Hide();
             }
             else

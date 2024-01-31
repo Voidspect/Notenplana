@@ -39,5 +39,10 @@ namespace Notenplana23
         {
             throw new NotImplementedException();
         }
+
+        void IModelProfile.speichern(string Benutzername, string Passwort)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

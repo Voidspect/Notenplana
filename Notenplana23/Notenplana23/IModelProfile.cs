@@ -10,5 +10,7 @@ namespace Notenplana23
     {
         void ausgeben(Profil profil);
         bool check(string Benutzername, string Passwort);
+
+        void speichern(string Benutzername, string Passwort);
     }
 }
